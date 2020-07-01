@@ -9,8 +9,8 @@ public class Application {
     public static void main(String[] args) throws Exception {
         runServer(29321);
         runClient(29321);
-        //runClient(29321);
-        //runClient(29321);
+        runClient(29321);
+        runClient(29321);
     }
     
     private static void runServer(int port) {
