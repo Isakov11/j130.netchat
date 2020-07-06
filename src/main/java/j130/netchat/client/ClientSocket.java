@@ -53,7 +53,11 @@ public class ClientSocket implements Runnable, Monitor {
 
             initConnection();
             
-            this.login = login;
+            synchronized(getMonitor()){
+                getMonitor().notify();
+            }
+            
+            //this.login = login;
             sendUserInput("@logon " + login);
         } catch (IOException ex) {
             System.out.println("init error + " + ex);
@@ -118,8 +122,10 @@ public class ClientSocket implements Runnable, Monitor {
         if (logon){
             if(inputLine.subSequence(0, 3).equals("@CE")){
                 logon = false;
+                this.login = (String) inputLine.subSequence(4, inputLine.length());
                 inputLine = "Welcome " + login;
                 System.out.println("login accepted");
+                
             }
             else{
                 logon = false;

@@ -192,9 +192,6 @@ public class ClientFrame extends javax.swing.JFrame implements MyEventListener{
             }
             if (!serverTextField.getText().isEmpty() && !loginTextField.getText().isEmpty()){
                 clientSocket.logon(serverTextField.getText(), loginTextField.getText());
-                synchronized(clientSocket.getMonitor()){
-                    clientSocket.getMonitor().notify();
-                }
                 loginFrame.dispose();
             }
     }//GEN-LAST:event_connectButtonActionPerformed

@@ -83,7 +83,7 @@ public class ServerReplyTask implements Runnable {
                     System.out.println("@CE");
                     clientLogin = login;
                     //out.println("Welcome " + clientLogin);
-                    out.println("@CE");
+                    out.println("@CE " + login);
                     ServerSocketListener.fireDataChanged("updateUserList");
                     return null;
                 }
